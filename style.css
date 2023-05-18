@@ -1,0 +1,59 @@
+
+.main-title {
+    font-family: cursive;
+    margin-top: 30px;
+    color: #D9453D;
+}
+
+body {
+    background-image: url(ressources/pokecenter.jpeg);
+    background-repeat: no-repeat;
+}
+
+.background {
+    margin-top: 25px;
+    width: 800px;
+    height: 550px;
+    background-color: rgba(0, 0, 0, 0.415);
+    border-radius: 5px;
+}
+
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+    background-color: #D9453D !important;
+    padding: 15px 120px 15px 120px !important;
+    border: 0px !important;
+}
+
+.btn-primary:hover {
+    background-color: #f8574e !important;
+}
+
+.container-sm {
+    width: 70% !important;
+}
+
+.container-md {
+    width: 20% !important;
+}
+
+.card-full {
+    padding: 30px;
+    margin: 20px;
+    color: rgb(255, 255, 255);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: lighter;
+    background-color: rgba(255, 255, 255, 0.114);
+}
+
+progress {
+    width: 125px;
+    height : 8px;
+    border: 1px solid rgb(208, 208, 208);
+    border-radius: 3px;
+}
+progress::-webkit-progress-bar {
+    background-color: rgb(251, 251, 251);
+}
+progress::-webkit-progress-value {
+    background-color: green;
+}
