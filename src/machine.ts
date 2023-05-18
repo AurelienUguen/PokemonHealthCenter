@@ -12,15 +12,9 @@ export class Machine
     public set storage(value: number) {
         this._storage = value;
     }
-
-    // regen = (pokemon:Pokemon) => {
-    //     pokemon.pv = pokemon.maxPv;
-    //     return pokemon.scream;
-
-    // }    
     
-
+    regen = (pokemon:Pokemon) => {
+        pokemon.pv = pokemon.maxPv;
+        return pokemon.scream;
+    } 
 }
-
-const machine = new Machine (6);
-console.log(machine);
