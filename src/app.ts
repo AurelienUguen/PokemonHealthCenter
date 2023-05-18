@@ -1,7 +1,6 @@
 import { Machine } from "./machine.js";
 import { Pokemon } from "./pokemon.js";
 
-
 const machine = new Machine (6);
 
 let pokedex : {[key: string]: Pokemon} = {
@@ -16,17 +15,22 @@ let pokedex : {[key: string]: Pokemon} = {
 
 const pokeKeys = Object.keys(pokedex);
 
+console.log("pokeKeys = "+pokeKeys);
 
 pokedex.pikachu.wound(200);
-pokedex.evoli.wound(10);
-pokedex.psykokwak.wound(15);
 pokedex.canartichau.wound(10);
+
+
 
 let woundedPokemon  = [];
 
 function isWounded(){
 
-    Object.keys(pokeKeys).forEach()
+    Object.keys(pokedex).forEach(function(pokemon) {
+        if(pokedex[pokemon].pv < pokedex[pokemon].maxPv){
+            console.log(pokemon);
+        }
+    });
 
 }
 const backgroundElt = document.querySelector('.background');
@@ -45,6 +49,9 @@ console.log(woundedPokemon);
 isWounded();
 
 
+//console.log(woundedPokemon);
+
+/*
 // machine.regen(pokedex[pokeKeys[i]]);
 
 backgroundElt.style.width = '1000px'
