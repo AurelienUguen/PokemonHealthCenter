@@ -1,7 +1,6 @@
 import { Machine } from "./machine.js";
 import { Pokemon } from "./pokemon.js";
 
-
 const machine = new Machine (6);
 
 let pokedex : {[key: string]: Pokemon} = {
@@ -16,33 +15,30 @@ let pokedex : {[key: string]: Pokemon} = {
 
 const pokeKeys = Object.keys(pokedex);
 
+console.log("pokeKeys = "+pokeKeys);
 
 pokedex.pikachu.wound(200);
-pokedex.evoli.wound(10);
-pokedex.psykokwak.wound(15);
 pokedex.canartichau.wound(10);
+
+
 
 let woundedPokemon  = [];
 
 function isWounded(){
 
-    Object.keys(pokeKeys).forEach()
+    Object.keys(pokedex).forEach(function(pokemon) {
+        if(pokedex[pokemon].pv < pokedex[pokemon].maxPv){
+            console.log(pokemon);
+        }
+    });
 
 }
-// function isWounded(){
-
-//     for(let i = 0; i < pokeKeys.length;i++){
-        
-//         if(pokedex[pokeKeys[i]].pv < pokedex[pokeKeys[i]].maxPv){
-//             console.log( woundedPokemon.push(pokedex[pokeKeys[i]]));
-//             console.log('a la noix');
-//         }
-//     }
-// }
-console.log(woundedPokemon);
 isWounded();
 
 
+//console.log(woundedPokemon);
+
+/*
 // machine.regen(pokedex[pokeKeys[i]]);
 
 const lineElt = document.querySelector('.line');
@@ -85,3 +81,4 @@ btnElmt?.addEventListener('click', () => {
     
 })
 
+*/
