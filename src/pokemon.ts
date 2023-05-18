@@ -47,6 +47,9 @@ export class Pokemon {
 
     wound = (attackPv: number) => {
         this.pv -= attackPv;
+        if(this.pv < 0){
+            this.pv = 0;
+        }
         return (attackPv + ' Ouch! (' + this.pv + ')');
     }
 }
