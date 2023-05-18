@@ -6,12 +6,12 @@ const machine = new Machine (6);
 
 let pokedex : {[key: string]: Pokemon} = {
     pikachu : new Pokemon('Pikachu', 'Pikaaaachhuuuu', 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png', 150),
-    salameche : new Pokemon('Salameche', 'salaaameche', 'https://tinyurl.com/2w4dykhy', 200),
+    // salameche : new Pokemon('Salameche', 'salaaameche', 'https://tinyurl.com/2w4dykhy', 200),
     carapuce : new Pokemon('Carapuce', 'carapuuuce', 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/007.png', 90),
-    evoli : new Pokemon('evoli', 'evoliii', 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/133.png', 110),
-    canartichau : new Pokemon('canartichau', 'canartichauuu', 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/083.png', 300),
-    psykokwak : new Pokemon('psykokwak', 'psykokwaaak', 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/054.png', 100),
-    ptitard: new Pokemon('ptitard', 'ptitaaaard', 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png', 100),
+    evoli : new Pokemon('Evoli', 'evoliii', 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/133.png', 110),
+    canartichau : new Pokemon('Canarticho', 'canartichauuu', 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/083.png', 300),
+    psykokwak : new Pokemon('Psykokwak', 'psykokwaaak', 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/054.png', 100),
+    ptitard: new Pokemon('Ptitard', 'ptitaaaard', 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png', 100),
 };
 
 const pokeKeys = Object.keys(pokedex);
@@ -28,14 +28,17 @@ for (let i = 0; i < pokeKeys.length;i++){
     }
 }
 
+const backgroundElt = document.querySelector('.background');
+const cards = document.querySelector('.cards');
 
-const lineElt = document.querySelector('.line');
+backgroundElt.style.width = '1000px'
+backgroundElt.style.height = '600px'
 
 function createCard(title: string, imageUrl: string) {
 
     const card = document.createElement("div");
-    card.classList.add("full-card");
-    lineElt?.appendChild(card);
+    card.classList.add("card");
+    cards?.appendChild(card);
 
     const cardHeader = document.createElement("div");
     cardHeader.classList.add("card-header")
@@ -55,7 +58,14 @@ function createCard(title: string, imageUrl: string) {
     cardTitle.classList.add("card-title");
     cardBody.appendChild(cardTitle);
 
-    console.log('Hi!')
+    const cardHealth = document.createElement("progress");
+    cardHealth.classList.add('bar');
+    cardBody.appendChild(cardHealth);
+
+    cardImg.style.width = '100px';
+    cardImg.style.height = '100px';
 }
 
-createCard('Carapuce', 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/007.png');
+for (let i = 0; i < pokeKeys.length ; i++) {
+    createCard(pokedex[pokeKeys[i]].name, pokedex[pokeKeys[i]].image);
+} 
