@@ -1,35 +1,39 @@
 
-export class Pokemon  {
-    
+export class Pokemon {
     private _pv: number;
 
-    constructor(private _name: string, private _scream: string, private _image: string, private _maxPv :number){
+    constructor(
+        private _name: string,
+        private _scream: string,
+        private _image: string,
+        private _maxPv: number
+    ) {
         this._pv = _maxPv;
         this._maxPv = _maxPv;
     }
-    
+
     public get name(): string {
         return this._name;
     }
     public set name(value: string) {
         this._name = value;
     }
-    
+
     public get scream(): string {
         return this._scream;
     }
     public set scream(value: string) {
         this._scream = value;
     }
-    
+
     public get pv(): number {
         return this._pv;
     }
 
     public set pv(value: number) {
-        this._pv;
+        this._pv = value;
     }
-    
+
     public get image(): string {
         return this._image;
     }
@@ -38,18 +42,12 @@ export class Pokemon  {
         this._image = value;
     }
 
-    public get maxPv():number {
+    public get maxPv(): number {
         return this._maxPv;
     }
 
-    regen = () => {
-        this.pv = this.maxPv;
-        return this.scream;
-    }    
-
-    wound = (attackPv :number)=> {
+    wound = (attackPv: number) => {
         this.pv -= attackPv;
-        return ('Ouch')
+        return (attackPv + ' Ouch! (' + this.pv + ')');
     }
 }
-
