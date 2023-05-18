@@ -33,11 +33,14 @@ body {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: lighter;
     background-color: rgba(255, 255, 255, 0.114);
-  /*   margin: 7px;
-    padding: 30px; */
 }
 
-
+.card-img {
+    border-radius: 10px 10px 0 0;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 40%;
+  }
 progress {
     width: 125px;
     height : 8px;
