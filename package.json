@@ -1,0 +1,14 @@
+{
+  "name": "pokemonhealthcenter",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aurélien",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  },
+  "main": "index.js",
+  "description": ""
+}
