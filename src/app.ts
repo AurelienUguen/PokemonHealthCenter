@@ -16,20 +16,36 @@ let pokedex : {[key: string]: Pokemon} = {
 
 const pokeKeys = Object.keys(pokedex);
 
-console.log(pokeKeys);
-pokedex.pikachu.wound(150);
 
-for (let i = 0; i < pokeKeys.length;i++){
+pokedex.pikachu.wound(200);
+pokedex.evoli.wound(10);
+pokedex.psykokwak.wound(15);
+pokedex.canartichau.wound(10);
 
-    if(pokedex[pokeKeys[i]].pv < pokedex[pokeKeys[i]].maxPv){
-        console.log("coucou");
-        console.log(pokedex[pokeKeys[i]].pv);
-        machine.regen(pokedex[pokeKeys[i]]);
-    }
+let woundedPokemon  = [];
+
+function isWounded(){
+
+    Object.keys(pokeKeys).forEach()
+
 }
-
 const backgroundElt = document.querySelector('.background');
 const cards = document.querySelector('.cards');
+// function isWounded(){
+
+//     for(let i = 0; i < pokeKeys.length;i++){
+        
+//         if(pokedex[pokeKeys[i]].pv < pokedex[pokeKeys[i]].maxPv){
+//             console.log( woundedPokemon.push(pokedex[pokeKeys[i]]));
+//             console.log('a la noix');
+//         }
+//     }
+// }
+console.log(woundedPokemon);
+isWounded();
+
+
+// machine.regen(pokedex[pokeKeys[i]]);
 
 backgroundElt.style.width = '1000px'
 backgroundElt.style.height = '600px'
