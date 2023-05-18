@@ -1,4 +1,3 @@
-
 export class Pokemon {
     private _pv: number;
 
