@@ -11,9 +11,7 @@ body {
 }
 
 .background {
-    margin-top: 25px;
-    width: 800px;
-    height: 550px;
+    margin-top: 20px;
     background-color: rgba(0, 0, 0, 0.415);
     border-radius: 5px;
 }
@@ -28,28 +26,60 @@ body {
     background-color: #f8574e !important;
 }
 
-.full-card {
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     color: rgb(255, 255, 255);
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: lighter;
-    background-color: rgba(255, 255, 255, 0.114);
+}
+
+.card {
+    text-align: center;
+    border-radius: 10px;
+    width: 200px;
+    margin: 20px 50px 20px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255) !important;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: lighter;
+    background-color: rgba(255, 255, 255, 0.114) !important;
+}
+
+.card-header {
+    visibility: hidden;
 }
 
 .card-img {
     border-radius: 10px 10px 0 0;
-    background-repeat: no-repeat;
-    height: 200px;
-    width: 40%;
-  }
-progress {
+    background-size: cover;
+    background-position: center;
+    background-image: url("http://placekitten.com/200/300");
+
+}
+
+.card-body {
+    padding: 10px 20px;
+}
+
+.card-body h2 {
+    margin: 10px 0px;
+}
+
+.bar {
     width: 125px;
     height : 8px;
     border: 1px solid rgb(208, 208, 208);
     border-radius: 3px;
 }
-progress::-webkit-progress-bar {
+.bar::-webkit-progress-bar {
     background-color: rgb(251, 251, 251);
 }
-progress::-webkit-progress-value {
+.bar::-webkit-progress-value {
     background-color: green;
 }
