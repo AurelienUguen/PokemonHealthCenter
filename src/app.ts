@@ -4,7 +4,7 @@ import { Pokemon } from "./pokemon.js";
 
 const machine = new Machine (6);
 
-let pokedex = {
+let pokedex: {[key: string]: Pokemon} = {
     pikachu : new Pokemon('Pikachu', 'Pikaaaachhuuuu', 'joliPik', 150),
     salameche : new Pokemon('salameche', 'salaaameche', 'joliPik', 200),
     carapuce : new Pokemon('carapuce', 'carapuuuce', 'joliPik', 90),
@@ -19,10 +19,7 @@ const pokeKeys = Object.keys(pokedex);
 console.log(pokeKeys);
 pokedex.pikachu.wound(150);
 
-//type Pokemons = keyof pokedex;
-
-/*
-for (let i = 0; i < pokeKeys.length;i++){
+for (let i = 0; i < pokeKeys.length; i++){
     const pokemon = pokedex[pokeKeys[i]];
     console.log(pokemon);
     if(pokedex[pokeKeys[i]].pv < pokedex[pokeKeys[i]].maxPv){
@@ -31,7 +28,7 @@ for (let i = 0; i < pokeKeys.length;i++){
         machine.regen(pokedex[pokeKeys[i]]);
     }
 }
-*/
+
 //pikachu.pv = 10;
 //machine.regen(pokedex.[pokeKeys[i]]);
 console.log(pokedex);
