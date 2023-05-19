@@ -77,13 +77,23 @@ body {
     border: 1px solid rgb(208, 208, 208);
     border-radius: 3px;
 }
-.bar::-webkit-progress-bar {
-    background-color: rgb(251, 251, 251);
-}
-.bar::-webkit-progress-value {
-    background-color: green;
+
+
+.health {
+    background-color: #00c517;
+    width: 100px;
+    height: 6px;
+    border-radius: 2px;
 }
 
 .win {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-repeat: no-repeat;
+    font-style: italic;
     font-size: 100px;
+    height: 300px;
+    width: 100%;
 }
