@@ -99,12 +99,9 @@ function calcHealthPerc(pv: number, maxPv: number) {
     
 }
 
-function createCard(
-    title: string,
-    imageUrl: string,
-    scream: string,
-    pv: number,
-    maxPv: number
+
+function createPokemonCard(
+    pokemon: Pokemon
 ) {
     const card = document.createElement("div");
     card.classList.add("card");
@@ -115,7 +112,7 @@ function createCard(
     card.appendChild(cardHeader);
 
     const cardImg = document.createElement("div");
-    cardImg.style.backgroundImage = `url(${imageUrl})`;
+    cardImg.style.backgroundImage = `url(${pokemon.image})`;
     cardImg.classList.add("card-img");
     card.appendChild(cardImg);
 
@@ -124,37 +121,29 @@ function createCard(
     card.appendChild(cardBody);
 
     const cardTitle = document.createElement("h2");
-    cardTitle.innerHTML = `${title}`;
+    cardTitle.innerHTML = `${pokemon.name}`;
     cardTitle.classList.add("card-title");
     cardBody.appendChild(cardTitle);
 
     const cardHealthContainer = document.createElement("div");
     cardHealthContainer.classList.add("bar");
     cardBody.appendChild(cardHealthContainer);
-
-    const healthContainer = document.createElement("div");
-    healthContainer.classList.add("health");
-    cardHealthContainer.appendChild(healthContainer);
-    healthContainer.style.width = calcHealthPerc(pv, maxPv);
-
-    
+  
+    pokemon._healthContainer = document.createElement("div");
+    pokemon._healthContainer.classList.add("health");
+    cardHealthContainer.appendChild(pokemon._healthContainer);
+    pokemon._healthContainer.style.width = calcHealthPerc(pokemon.pv, pokemon.maxPv);
 
     cardImg.style.width = "100px";
     cardImg.style.height = "100px";
 }
-
-
 let listWounded: Pokemon[] = [];
 
 function listWoundedPokemon() {
         for (let i = 0; i < woundedPokemon.length; i++) {
             if (!listWounded.includes(pokedex[woundedPokemon[i]])) {
-                createCard(
-                    pokedex[woundedPokemon[i]].name,
-                    pokedex[woundedPokemon[i]].image,
-                    pokedex[woundedPokemon[i]].scream,
-                    pokedex[woundedPokemon[i]].pv,
-                    pokedex[woundedPokemon[i]].maxPv
+                createPokemonCard(
+                    pokedex[woundedPokemon[i]];
                 );
                 listWounded.push(pokedex[woundedPokemon[i]]);
                 if (listWounded.length === machine.storage) {
@@ -173,11 +162,22 @@ let button: boolean;
 const music = new Audio('./assets/PokeCenter2.mp3');
 
 btnMachineElmt.addEventListener("click", () => {
+
+
     if (button) {
         btnMachineElmt.textContent = "Who is wounded ?";
         heal(listWounded);
         woundedPokemon = [];
-        setTimeout(() => {cards.innerHTML = ""}, 2000);
+
+        for (let i = 0; i < listWounded.length; i++) {
+        
+            setTimeout(() => {
+                const pokemon = listWounded[i];
+                if (!pokemon._healthContainer) return;
+                pokemon._healthContainer.style.width = '100%';
+            });
+        };
+        setTimeout(() => {cards.innerHTML = ""}, 3000);
         music.play();
         button = false;
     } else {
