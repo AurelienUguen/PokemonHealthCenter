@@ -39,29 +39,12 @@ function heal(list: string[]){
     }
 
 }
-const backgroundElt = document.querySelector('.background');
+const backgroundElt = document.querySelector('.background')! as HTMLElement;
+console.log(backgroundElt);
 const cards = document.querySelector('.cards');
-// function isWounded(){
 
-//     for(let i = 0; i < pokeKeys.length;i++){
-        
-//         if(pokedex[pokeKeys[i]].pv < pokedex[pokeKeys[i]].maxPv){
-//             console.log( woundedPokemon.push(pokedex[pokeKeys[i]]));
-//             console.log('a la noix');
-//         }
-//     }
-// }
-console.log(woundedPokemon);
-isWounded();
-
-
-//console.log(woundedPokemon);
-
-/*
-// machine.regen(pokedex[pokeKeys[i]]);
-
-backgroundElt.style.width = '1000px'
-backgroundElt.style.height = '600px'
+backgroundElt.style.width = '1000px';
+backgroundElt.style.height = '600px';
 
 /*
 * title = pokedex[woundedPokemon[?]].name
