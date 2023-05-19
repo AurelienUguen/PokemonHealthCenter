@@ -10,7 +10,7 @@ body {
     background-repeat: no-repeat;
 }
 
-.background {
+.background, .backgroundPatients {
     margin-top: 20px;
     background-color: rgba(0, 0, 0, 0.415);
     border-radius: 5px;
