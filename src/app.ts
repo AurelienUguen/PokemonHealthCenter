@@ -105,3 +105,13 @@ btnHealedElmt?.addEventListener('click', () => {
     woundedPokemon = [];
     console.log(woundedPokemon);
 })
+
+
+const btnMusic = document.querySelector('.btn-music') as HTMLElement;
+
+const music = new Audio('./assets/PokeCenter2.mp3');
+
+btnMusic.addEventListener('click', () => {
+    music.play();
+    console.log('play music');  
+})
