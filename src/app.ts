@@ -25,7 +25,9 @@ let woundedPokemon: string[] = [];
 function isWounded() {
     Object.keys(pokedex).forEach(function (pokemon) {
         if (pokedex[pokemon].pv < pokedex[pokemon].maxPv) {
-            woundedPokemon = woundedPokemon.concat(pokemon);
+            if(!woundedPokemon.includes(pokemon)){
+                woundedPokemon = woundedPokemon.concat(pokemon);
+            }
         }
     });
     console.log(woundedPokemon);
