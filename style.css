@@ -83,3 +83,7 @@ body {
 .bar::-webkit-progress-value {
     background-color: green;
 }
+
+.win {
+    font-size: 100px;
+}
