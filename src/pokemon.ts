@@ -1,11 +1,12 @@
 export class Pokemon {
     private _pv: number;
+    public _healthContainer?: HTMLElement
 
     constructor(
         private _name: string,
         private _scream: string,
         private _image: string,
-        private _maxPv: number
+        private _maxPv: number,
     ) {
         this._pv = _maxPv;
         this._maxPv = _maxPv;
