@@ -48,18 +48,83 @@ let pokedex: { [key: string]: Pokemon } = {
         "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
         100
     ),
+    ptitarda: new Pokemon(
+        "ptitard",
+        "ptitaaaard",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
+        100
+    ),
+    ptitardz: new Pokemon(
+        "ptitard",
+        "ptitaaaard",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
+        100
+    ),
+    ptitarde: new Pokemon(
+        "ptitard",
+        "ptitaaaard",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
+        100
+    ),
+    ptitardr: new Pokemon(
+        "ptitard",
+        "ptitaaaard",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
+        100
+    ),
+    ptitardt: new Pokemon(
+        "ptitard",
+        "ptitaaaard",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
+        100
+    ),
+    ptitardy: new Pokemon(
+        "ptitard",
+        "ptitaaaard",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
+        100
+    ),
+    ptitardu: new Pokemon(
+        "ptitard",
+        "ptitaaaard",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
+        100
+    ),
+    ptitardi: new Pokemon(
+        "ptitard",
+        "ptitaaaard",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
+        100
+    ),
+    ptitardo: new Pokemon(
+        "ptitard",
+        "ptitaaaard",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
+        100
+    ),
 };
 
 pokedex.pikachu.wound(200);
 pokedex.canartichau.wound(10);
 pokedex.psykokwak.wound(100);
 pokedex.carapuce.wound(200);
-pokedex.ptitard.wound(10);
 pokedex.evoli.wound(100);
 pokedex.salameche.wound(200);
+pokedex.ptitard.wound(10);
 
 
- 
+pokedex.ptitarda.wound(10);
+pokedex.ptitardz.wound(10);
+pokedex.ptitarde.wound(10);
+pokedex.ptitardr.wound(10);
+pokedex.ptitardt.wound(10);
+pokedex.ptitardy.wound(10);
+pokedex.ptitardu.wound(10);
+pokedex.ptitardi.wound(10);
+pokedex.ptitardo.wound(10);
+
+
+
 // Variable qui accumule les Pokeymaunes bléssés ou hors jeux //
 let woundedPokemon: string[] = [];
 
@@ -74,16 +139,22 @@ function isWounded() {
     });
 }
 
-function heal(list: Pokemon[]) {
+isWounded();
+console.log(woundedPokemon);
+
+function heal(list: string[]) {
     for (let i = 0; i < list.length; i++) {
-        list[i].pv = list[i].maxPv;
+        pokedex[list[i]].pv = pokedex[list[i]].maxPv;
     }
 }
 const backgroundElt = document.querySelector(".background")! as HTMLElement;
+const backgroundPatientsElt = document.querySelector(".backgroundPatients")! as HTMLElement;
 const cards = document.querySelector(".cards")!;
+const cardPatients = document.querySelector(".cardPatients")!;
 
 backgroundElt.style.width = "1000px";
 backgroundElt.style.height = "600px";
+backgroundPatientsElt.style.height = "600px";
 
 /*
  * title = pokedex[woundedPokemon[?]].name
@@ -91,6 +162,38 @@ backgroundElt.style.height = "600px";
  * scream = pokedex[woundedPokemon[?]].scream
  * maxPv = pokedex[woundedPokemon[?]].maxPv
  */
+
+function createCardPatient(
+    title: string,
+    imageUrl: string,
+    scream: string,
+    maxPv: number
+) {
+    const card = document.createElement("div");
+    card.classList.add("card", "m-1");
+    cardPatients?.appendChild(card);
+
+    const cardHeader = document.createElement("div");
+    cardHeader.classList.add("card-header");
+    card.appendChild(cardHeader);
+
+    const cardImg = document.createElement("div");
+    cardImg.style.backgroundImage = `url(${imageUrl})`;
+    cardImg.classList.add("card-img");
+    card.appendChild(cardImg);
+
+    const cardBody = document.createElement("div");
+    cardBody.classList.add("card-body", "m-0", "p-0");
+    card.appendChild(cardBody);
+
+    const cardTitle = document.createElement("p");
+    cardTitle.innerHTML = `${title}`;
+    cardTitle.classList.add("card-patient-title");
+    cardBody.appendChild(cardTitle);
+
+    cardImg.style.width = "50px";
+    cardImg.style.height = "50px";
+}
 
 function createCard(
     title: string,
@@ -128,31 +231,39 @@ function createCard(
     cardImg.style.height = "100px";
 }
 
-function changeButton() {
-
+let listWounded: string[] = woundedPokemon.slice(0, machine.storage);
+function listWoundedPokemon() {
+    for (let i = 0; i < listWounded.length; i++) {
+        //if (!listWounded.includes(pokedex[woundedPokemon[i]])) {
+        createCard(
+            pokedex[woundedPokemon[i]].name,
+            pokedex[woundedPokemon[i]].image,
+            pokedex[woundedPokemon[i]].scream,
+            pokedex[woundedPokemon[i]].maxPv
+        );
+        /*
+        listWounded.push(pokedex[woundedPokemon[i]]);
+        if (listWounded.length === machine.storage) {
+            return;
+        }
+        */
+        //}
+    }
 }
 
-let listWounded: Pokemon[] = [];
 
-function listWoundedPokemon() {
-        for (let i = 0; i < woundedPokemon.length; i++) {
-            if (!listWounded.includes(pokedex[woundedPokemon[i]])) {
-                createCard(
-                    pokedex[woundedPokemon[i]].name,
-                    pokedex[woundedPokemon[i]].image,
-                    pokedex[woundedPokemon[i]].scream,
-                    pokedex[woundedPokemon[i]].maxPv
-                );
-                listWounded.push(pokedex[woundedPokemon[i]]);
-                if (listWounded.length === machine.storage) {
-                    return;
-                }
-            }
-        }
+function listPatients() {
+    let lengthList = woundedPokemon.length < 15 ? woundedPokemon.length : 15;
+    for (let i = 0; i < lengthList; i++) {
+        createCardPatient(
+            pokedex[woundedPokemon[i]].name,
+            pokedex[woundedPokemon[i]].image,
+            pokedex[woundedPokemon[i]].scream,
+            pokedex[woundedPokemon[i]].maxPv
+        );
     }
-
-// les fonctions des boutons //
-
+}
+listPatients();
 
 const btnMachineElmt = document.querySelector(".button-machine") as HTMLElement;
 
@@ -162,15 +273,18 @@ btnMachineElmt.addEventListener("click", () => {
     if (button) {
         btnMachineElmt.textContent = "Who is wounded ?";
         heal(listWounded);
-        woundedPokemon = [];
+        woundedPokemon = woundedPokemon.slice(6);
+        listWounded = woundedPokemon.slice(0, machine.storage);
+        cardPatients.innerHTML = "";
         cards.innerHTML = "";
+        listPatients();
         button = false;
-        console.log(woundedPokemon.length);
     } else {
         btnMachineElmt.textContent = "Heal them all !";
         cards.innerHTML = "";
         isWounded();
         listWoundedPokemon();
+
         if (woundedPokemon.length === 0) {
             const win = document.createElement("div");
             win.classList.add("win");
@@ -179,6 +293,5 @@ btnMachineElmt.addEventListener("click", () => {
             return btnMachineElmt.textContent = "";
         }
         button = true;
-        console.log(woundedPokemon.length);
-    }   
+    }
 });
