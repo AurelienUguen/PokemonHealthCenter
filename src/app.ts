@@ -99,6 +99,7 @@ function calcHealthPerc(pv: number, maxPv: number) {
     
 }
 
+
 function createPokemonCard(
     pokemon: Pokemon
 ) {
@@ -127,7 +128,7 @@ function createPokemonCard(
     const cardHealthContainer = document.createElement("div");
     cardHealthContainer.classList.add("bar");
     cardBody.appendChild(cardHealthContainer);
-
+  
     pokemon._healthContainer = document.createElement("div");
     pokemon._healthContainer.classList.add("health");
     cardHealthContainer.appendChild(pokemon._healthContainer);
@@ -136,14 +137,13 @@ function createPokemonCard(
     cardImg.style.width = "100px";
     cardImg.style.height = "100px";
 }
-
 let listWounded: Pokemon[] = [];
 
 function listWoundedPokemon() {
         for (let i = 0; i < woundedPokemon.length; i++) {
             if (!listWounded.includes(pokedex[woundedPokemon[i]])) {
                 createPokemonCard(
-                    pokedex[woundedPokemon[i]]
+                    pokedex[woundedPokemon[i]];
                 );
                 listWounded.push(pokedex[woundedPokemon[i]]);
                 if (listWounded.length === machine.storage) {
@@ -168,6 +168,7 @@ btnMachineElmt.addEventListener("click", () => {
         btnMachineElmt.textContent = "Who is wounded ?";
         heal(listWounded);
         woundedPokemon = [];
+
         for (let i = 0; i < listWounded.length; i++) {
         
             setTimeout(() => {
