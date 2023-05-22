@@ -36,15 +36,25 @@ body {
     font-weight: lighter;
 }
 
+.cardPatients {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    color: rgb(255, 255, 255);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 .card {
     text-align: center;
     border-radius: 10px;
-    width: 200px;
-    margin: 20px 50px 20px 50px;
+     width: 200px;
+    margin: 7px 15px 7px 15px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
+  
     color: rgb(255, 255, 255) !important;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: lighter;
@@ -68,6 +78,7 @@ body {
 }
 
 .card-body h2 {
+    font-size: 24px;
     margin: 10px 0px;
 }
 
@@ -98,14 +109,7 @@ body {
     width: 100%;
 }
 
-.screamCont{
-    margin-bottom: 50px;
-    width:150px;
-    height:10px;
-}
-
 .scream{
-
     margin-top: 20px;
     font-size: large;
 }
