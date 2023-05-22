@@ -51,11 +51,11 @@ let pokedex: { [key: string]: Pokemon } = {
 }
 
 pokedex.pikachu.wound(200);
-pokedex.canartichau.wound(10);
-pokedex.psykokwak.wound(23);
+pokedex.canartichau.wound(140);
+pokedex.psykokwak.wound(70);
 pokedex.carapuce.wound(74);
-pokedex.ptitard.wound(34);
-pokedex.evoli.wound(17);
+pokedex.ptitard.wound(88);
+pokedex.evoli.wound(25);
 pokedex.salameche.wound(133);
 
 
@@ -135,7 +135,7 @@ function createPokemonCard(
 
     if (actualLifeInNumber < 20) {
        pokemon._healthContainer.style.backgroundColor = '#DA2528';
-    } else if (actualLifeInNumber < 45) {
+    } else if (actualLifeInNumber > 20 && actualLifeInNumber < 60) {
         pokemon._healthContainer.style.backgroundColor = '#F1C40F';
     }
 
@@ -166,7 +166,6 @@ let button: boolean;
 const music = new Audio('./assets/PokeCenter2.mp3');
 
 btnMachineElmt.addEventListener("click", () => {
-
 
     if (button) {
         btnMachineElmt.textContent = "Who is wounded ?";
