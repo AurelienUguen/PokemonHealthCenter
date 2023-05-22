@@ -71,7 +71,7 @@ pokedex.lipoutou.wound(355);
 
 // Variable qui accumule les Pokeymaunes bléssés ou hors jeux //
 let woundedPokemon: string[] = [];
-let emergencyList: string[] = [];
+//let emergencyList: string[] = [];
 
 // Fonction de remplissage de la liste de Pokeymaunes bléssés ou hors jeux //
 function isWounded() {
@@ -79,7 +79,7 @@ function isWounded() {
         if (pokedex[pokemon].pv < pokedex[pokemon].maxPv) {
             if (!woundedPokemon.includes(pokemon)) {
                 woundedPokemon.push(pokemon);
-                emergencyList.push(pokemon);
+                //emergencyList.push(pokemon);
             }
         }
     });
@@ -89,8 +89,9 @@ isWounded();
 //console.log (emergencyList);
 //console.log (woundedPokemon);
 
-let isWaiting: Pokemon[] = [];
+//let isWaiting: Pokemon[] = [];
 //console.log(isWaiting);
+/*
 function waitingList(){
     for (let i = 0; i < emergencyList.length; i++) {
         if (!isWaiting.includes(pokedex[emergencyList[i]])) {
@@ -99,6 +100,7 @@ function waitingList(){
         }
     }
 }
+*/
 
 function heal(list: Pokemon[]) {
     for (let i = 0; i < list.length; i++) {
@@ -184,10 +186,12 @@ function listWoundedPokemon() {
     }
 }
 
+/*
 const backgroundPatientsElt = document.querySelector(".backgroundPatients")! as HTMLElement;
 const cardPatients = document.querySelector(".cardPatients")!;
 backgroundPatientsElt.style.height = "600px";
-
+*/
+/*
 function createWaitingListCard(
     pokemon: Pokemon
 ) {
@@ -216,6 +220,7 @@ function createWaitingListCard(
     cardImg.style.width = "50px";
     cardImg.style.height = "50px";
 }
+*/
 
 // les fonctions des boutons //
 
