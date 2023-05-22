@@ -111,18 +111,19 @@ let pokedex: { [key: string]: Pokemon } = {
 }
 ​
 pokedex.pikachu.wound(200);
-pokedex.canartichau.wound(10);
-pokedex.psykokwak.wound(23);
 pokedex.salameche.wound(133);
 pokedex.carapuce.wound(74);
 pokedex.evoli.wound(17);
-pokedex.ptitard.wound(34);
-​
+pokedex.canartichau.wound(10);
+pokedex.psykokwak.wound(23);
+
+pokedex.ptitard.wound(34);​
 pokedex.bulbizarre.wound(34);
 pokedex.melofee.wound(37);
 pokedex.goupix.wound(74);
 pokedex.caninos.wound(64);
 pokedex.racaillou.wound(34);
+
 pokedex.ponyta.wound(60);
 pokedex.otaria.wound(14);
 pokedex.tadmorv.wound(3);
@@ -227,6 +228,7 @@ let listWounded: Pokemon[] = [];
 
 function listWoundedPokemon() {
         for (let i = 0; i < woundedPokemon.length; i++) {
+            console.log('woundedPokemon etlength ' + woundedPokemon.length)
             if (!listWounded.includes(pokedex[woundedPokemon[i]])) {
                 createPokemonCard(pokedex[woundedPokemon[i]]);
                 listWounded.push(pokedex[woundedPokemon[i]]);
@@ -250,8 +252,11 @@ btnMachineElmt.addEventListener("click", () => {
     
     if (button) {
         heal(listWounded);
+    
         woundedPokemon = [];
+
         for (let i = 0; i < listWounded.length; i++) {
+
             setTimeout(() => {
                 const pokemon = listWounded[i];
                 if (!pokemon._healthContainer) return;
@@ -261,7 +266,6 @@ btnMachineElmt.addEventListener("click", () => {
         };
         btnMachineElmt.setAttribute('disabled', '');
         setTimeout(() => {btnMachineElmt.textContent = "Who is wounded ?"}, 3000);
-        
         setTimeout(() => {cards.innerHTML = ""}, 3000);
         
 
@@ -277,7 +281,9 @@ btnMachineElmt.addEventListener("click", () => {
         setTimeout(() => {btnMachineElmt.removeAttribute('disabled')}, 3000);
         music.play();
         button = false;
+        
     } else {
+        listWounded = [];
         btnMachineElmt.textContent = "Heal them all !";
         cards.innerHTML = "";
         isWounded();
