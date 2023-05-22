@@ -97,3 +97,15 @@ body {
     height: 300px;
     width: 100%;
 }
+
+.screamCont{
+    margin-bottom: 50px;
+    width:150px;
+    height:10px;
+}
+
+.scream{
+
+    margin-top: 20px;
+    font-size: large;
+}
