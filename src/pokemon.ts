@@ -1,6 +1,7 @@
 export class Pokemon {
     private _pv: number;
     public _healthContainer?: HTMLElement
+    public _screamContainer?: HTMLElement
 
     constructor(
         private _name: string,
