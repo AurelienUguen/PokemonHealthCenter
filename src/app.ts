@@ -59,7 +59,7 @@ pokedex.evoli.wound(17);
 pokedex.salameche.wound(133);
 
 
- 
+
 // Variable qui accumule les Pokeymaunes bléssés ou hors jeux //
 let woundedPokemon: string[] = [];
 
@@ -92,13 +92,10 @@ backgroundElt.style.height = "600px";
  * maxPv = pokedex[woundedPokemon[?]].maxPv
  */
 
-
 function calcHealthPerc(pv: number, maxPv: number) {
-    let currentLife = (pv / maxPv) * 100;
-        return currentLife + 'px';
-    
+    let currentLife = Math.round((pv / maxPv) * 100) * 100 / 100;
+    return currentLife + 'px';
 }
-
 
 function createPokemonCard(
     pokemon: Pokemon
@@ -128,23 +125,30 @@ function createPokemonCard(
     const cardHealthContainer = document.createElement("div");
     cardHealthContainer.classList.add("bar");
     cardBody.appendChild(cardHealthContainer);
-  
+
     pokemon._healthContainer = document.createElement("div");
     pokemon._healthContainer.classList.add("health");
     cardHealthContainer.appendChild(pokemon._healthContainer);
-    pokemon._healthContainer.style.width = calcHealthPerc(pokemon.pv, pokemon.maxPv);
+    pokemon._healthContainer.style.width = calcHealthPerc(pokemon.pv, pokemon.maxPv)
+
+    let actualLifeInNumber = Number(pokemon._healthContainer.style.width.replace(/[^0-9]/g, ''));
+
+    if (actualLifeInNumber < 20) {
+       pokemon._healthContainer.style.backgroundColor = '#DA2528';
+    } else if (actualLifeInNumber < 45) {
+        pokemon._healthContainer.style.backgroundColor = '#F1C40F';
+    }
 
     cardImg.style.width = "100px";
     cardImg.style.height = "100px";
 }
+
 let listWounded: Pokemon[] = [];
 
 function listWoundedPokemon() {
         for (let i = 0; i < woundedPokemon.length; i++) {
             if (!listWounded.includes(pokedex[woundedPokemon[i]])) {
-                createPokemonCard(
-                    pokedex[woundedPokemon[i]];
-                );
+                createPokemonCard(pokedex[woundedPokemon[i]]);
                 listWounded.push(pokedex[woundedPokemon[i]]);
                 if (listWounded.length === machine.storage) {
                     return;
@@ -168,17 +172,16 @@ btnMachineElmt.addEventListener("click", () => {
         btnMachineElmt.textContent = "Who is wounded ?";
         heal(listWounded);
         woundedPokemon = [];
-
         for (let i = 0; i < listWounded.length; i++) {
-        
             setTimeout(() => {
                 const pokemon = listWounded[i];
                 if (!pokemon._healthContainer) return;
                 pokemon._healthContainer.style.width = '100%';
+                pokemon._healthContainer.style.backgroundColor = '#00c517';
             });
         };
         setTimeout(() => {cards.innerHTML = ""}, 3000);
-        music.play();
+        // music.play();
         button = false;
     } else {
         btnMachineElmt.textContent = "Heal them all !";
