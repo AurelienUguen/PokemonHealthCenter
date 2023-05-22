@@ -161,6 +161,7 @@ function listWoundedPokemon() {
 
 const btnMachineElmt = document.querySelector(".button-machine") as HTMLElement;
 
+
 let button: boolean;
 
 const music = new Audio('./assets/PokeCenter2.mp3');
@@ -168,7 +169,6 @@ const music = new Audio('./assets/PokeCenter2.mp3');
 btnMachineElmt.addEventListener("click", () => {
 
     if (button) {
-        btnMachineElmt.textContent = "Who is wounded ?";
         heal(listWounded);
         woundedPokemon = [];
         for (let i = 0; i < listWounded.length; i++) {
@@ -179,8 +179,11 @@ btnMachineElmt.addEventListener("click", () => {
                 pokemon._healthContainer.style.backgroundColor = '#00c517';
             });
         };
+        btnMachineElmt.setAttribute('disabled', '');
+        setTimeout(() => {btnMachineElmt.textContent = "Who is wounded ?"}, 3000);
         setTimeout(() => {cards.innerHTML = ""}, 3000);
-        // music.play();
+        setTimeout(() => {btnMachineElmt.removeAttribute('disabled')}, 3000);
+        music.play();
         button = false;
     } else {
         btnMachineElmt.textContent = "Heal them all !";
@@ -195,6 +198,5 @@ btnMachineElmt.addEventListener("click", () => {
             return btnMachineElmt.textContent = "";
         }
         button = true;
-        console.log(woundedPokemon.length);
     }   
 });
