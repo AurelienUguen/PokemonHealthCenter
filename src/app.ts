@@ -5,119 +5,59 @@ import { Pokemon } from "./pokemon.js";
 const machine = new Machine(6);
 
 // List de nos instances de Pokeymaunes //
-let pokedex: { [key: string]: Pokemon } = {
-    pikachu: new Pokemon(
-        "Pikachu",
-        "Pikaaaachhuuuu",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png",
-        150
-    ),
-    salameche: new Pokemon(
-        "Salameche",
-        "Salaaameche",
-        "https://tinyurl.com/2w4dykhy",
-        200
-    ),
-    carapuce: new Pokemon(
-        "Carapuce",
-        "Carapuuuce",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/007.png",
-        90
-    ),
-    evoli: new Pokemon(
-        "Evoli",
-        "Evoliii",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/133.png",
-        110
-    ),
-    canartichau: new Pokemon(
-        "Canarticho",
-        "Canartichoooo",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/083.png",
-        300
-    ),
-    psykokwak: new Pokemon(
-        "Psykokwak",
-        "Psykokwaaak",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/054.png",
-        100
-    ),
-    ptitard: new Pokemon(
-        "Ptitard",
-        "Ptitaaaard",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
-        100
-    ),
-    bulbizarre: new Pokemon(
-        "Bulbizarre",
-        "Bulbiiii",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
-        105
-    ),
-    melofee: new Pokemon(
-        "Mélofée",
-        "Mélooooofée",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/035.png",
-        150
-    ),
-    goupix: new Pokemon(
-        "Goupix",
-        "Goupiiiix",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/037.png",
-        200
-    ),
-    caninos: new Pokemon(
-        "Caninos",
-        "Caniiiinos",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/058.png",
-        100
-    ),
-    racaillou: new Pokemon(
-        "Racaillou",
-        "Racaillouuuu",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/074.png",
-        100
-    ),
-    ponyta: new Pokemon(
-        "Ponyta",
-        "Popoponyta",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/077.png",
-        190
-    ),
-    otaria: new Pokemon(
-        "Otaria",
-        "Otariiia",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/086.png",
-        140
-    ),
-    tadmorv: new Pokemon(
-        "Tadmorv",
-        "Tadmoooooorv",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/088.png",
-        260
-    ),
-    onix: new Pokemon(
-        "Onix",
-        "Oniiiiix",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/095.png",
-        100
-    ),
-    lipoutou: new Pokemon(
-        "Lipoutou",
-        "Lipoutoupoutou",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/124.png",
-        100
-    )
+const pokedex: { [key: string]: Pokemon } = {
+    pikachu: new Pokemon("Pikachu","Pikaaaachhuuuu","https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png",150),
+    salameche: new Pokemon("Salameche","Salaaameche","https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png",200),
+    carapuce: new Pokemon("Carapuce","Carapuuuce","https://assets.pokemon.com/assets/cms2/img/pokedex/detail/007.png",90),
+    evoli: new Pokemon("Evoli","Evoliii","https://assets.pokemon.com/assets/cms2/img/pokedex/detail/133.png",110),
+    canartichau: new Pokemon("Canarticho","Canartichoooo","https://assets.pokemon.com/assets/cms2/img/pokedex/detail/083.png",300),
+    psykokwak: new Pokemon("Psykokwak","Psykokwaaak","https://assets.pokemon.com/assets/cms2/img/pokedex/detail/054.png",100),
+    ptitard: new Pokemon("Ptitard","Ptitaaaard","https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",100),
+    morpeko: new Pokemon("Morpeko","Ptitaaaard","https://assets.pokemon.com/assets/cms2/img/pokedex/full/877.png",100),
+    dedenne: new Pokemon("Dedenne","Ptitaaaard","https://assets.pokemon.com/assets/cms2/img/pokedex/full/702.png",100),
+    pashmilla: new Pokemon("Pashmilla","Ptitaaaard","https://assets.pokemon.com/assets/cms2/img/pokedex/full/573.png",100),
+    cochignon: new Pokemon("Cochignon","Ptitaaaard","https://assets.pokemon.com/assets/cms2/img/pokedex/full/221.png",100),
+    grainipiot: new Pokemon("Grainipiot","Ptitaaaard","https://assets.pokemon.com/assets/cms2/img/pokedex/full/273.png",100),
+    galegon: new Pokemon("Galegon","Ptitaaaard","https://assets.pokemon.com/assets/cms2/img/pokedex/full/305.png",100 ),
+    chochodile: new Pokemon("Chochodile","Ptitaaaard","https://assets.pokemon.com/assets/cms2/img/pokedex/full/909.png",250),
+    croquine: new Pokemon("Croquine","Ptitaaaard","https://assets.pokemon.com/assets/cms2/img/pokedex/full/761.png",100),
+    larvibule: new Pokemon("Larvibule","Ptitaaaard","https://assets.pokemon.com/assets/cms2/img/pokedex/full/736.png",100),
+    skelénox: new Pokemon("Skelénox","Ptitaaaard","https://assets.pokemon.com/assets/cms2/img/pokedex/full/355.png",100),
+    scrutella: new Pokemon("Scrutella","Ptitaaaard","https://assets.pokemon.com/assets/cms2/img/pokedex/full/574.png",120),
+    tortipouss: new Pokemon("Tortipouss","Ptitaaaard","https://assets.pokemon.com/assets/cms2/img/pokedex/full/387.png",100),
+    roudoudou: new Pokemon("Roudoudou","Ptitaaaard","https://assets.pokemon.com/assets/cms2/img/pokedex/full/039.png",100),
+    bulbizarre: new Pokemon("Bulbizarre","Bulbiiii","https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",105),
+    melofee: new Pokemon("Mélofée","Mélooooofée","https://assets.pokemon.com/assets/cms2/img/pokedex/full/035.png",150),
+    goupix: new Pokemon("Goupix","Goupiiiix","https://assets.pokemon.com/assets/cms2/img/pokedex/full/037.png",200),
+    caninos: new Pokemon("Caninos","Caniiiinos","https://assets.pokemon.com/assets/cms2/img/pokedex/full/058.png",100),
+    racaillou: new Pokemon("Racaillou","Racaillouuuu","https://assets.pokemon.com/assets/cms2/img/pokedex/full/074.png",100),
+    ponyta: new Pokemon("Ponyta","Popoponyta","https://assets.pokemon.com/assets/cms2/img/pokedex/full/077.png",190),
+    otaria: new Pokemon("Otaria","Otariiia","https://assets.pokemon.com/assets/cms2/img/pokedex/full/086.png",140),
+    tadmorv: new Pokemon("Tadmorv","Tadmoooooorv","https://assets.pokemon.com/assets/cms2/img/pokedex/full/088.png",260),
+    onix: new Pokemon("Onix","Oniiiiix","https://assets.pokemon.com/assets/cms2/img/pokedex/full/095.png",100),
+    lipoutou: new Pokemon("Lipoutou","Lipoutoupoutou","https://assets.pokemon.com/assets/cms2/img/pokedex/full/124.png",100)
 }
 ​
 pokedex.pikachu.wound(200);
 pokedex.canartichau.wound(10);
 pokedex.psykokwak.wound(23);
-pokedex.salameche.wound(133);
 pokedex.carapuce.wound(74);
-pokedex.evoli.wound(17);
 pokedex.ptitard.wound(34);
-​
+pokedex.evoli.wound(17);
+pokedex.salameche.wound(133);
+pokedex.morpeko.wound(200);
+pokedex.dedenne.wound(10);
+pokedex.pashmilla.wound(23);
+pokedex.cochignon.wound(74);
+pokedex.grainipiot.wound(34);
+pokedex.galegon.wound(17);
+pokedex.chochodile.wound(133);
+pokedex.croquine.wound(200);
+pokedex.larvibule.wound(10);
+pokedex.skelénox.wound(23);
+pokedex.scrutella.wound(74);
+pokedex.tortipouss.wound(34);
+pokedex.roudoudou.wound(17);
 pokedex.bulbizarre.wound(34);
 pokedex.melofee.wound(37);
 pokedex.goupix.wound(74);
@@ -129,20 +69,35 @@ pokedex.tadmorv.wound(3);
 pokedex.onix.wound(100);
 pokedex.lipoutou.wound(355);
 
-
-
 // Variable qui accumule les Pokeymaunes bléssés ou hors jeux //
 let woundedPokemon: string[] = [];
+let emergencyList: string[] = [];
 
 // Fonction de remplissage de la liste de Pokeymaunes bléssés ou hors jeux //
 function isWounded() {
     Object.keys(pokedex).forEach(function (pokemon) {
         if (pokedex[pokemon].pv < pokedex[pokemon].maxPv) {
             if (!woundedPokemon.includes(pokemon)) {
-                woundedPokemon = woundedPokemon.concat(pokemon);
+                woundedPokemon.push(pokemon);
+                emergencyList.push(pokemon);
             }
         }
     });
+}
+isWounded();
+//waitingList();
+//console.log (emergencyList);
+//console.log (woundedPokemon);
+
+let isWaiting: Pokemon[] = [];
+//console.log(isWaiting);
+function waitingList(){
+    for (let i = 0; i < emergencyList.length; i++) {
+        if (!isWaiting.includes(pokedex[emergencyList[i]])) {
+            createWaitingListCard(pokedex[emergencyList[i]]);
+            isWaiting.push(pokedex[emergencyList[i]]);
+        }
+    }
 }
 
 function heal(list: Pokemon[]) {
@@ -155,13 +110,6 @@ const cards = document.querySelector(".cards")!;
 
 backgroundElt.style.width = "1000px";
 backgroundElt.style.height = "600px";
-
-/*
- * title = pokedex[woundedPokemon[?]].name
- * imageUrl = pokedex[woundedPokemon[?]].image
- * scream = pokedex[woundedPokemon[?]].scream
- * maxPv = pokedex[woundedPokemon[?]].maxPv
- */
 
 function calcHealthPerc(pv: number, maxPv: number) {
     let currentLife = Math.round((pv / maxPv) * 100) * 100 / 100;
@@ -224,33 +172,63 @@ function createPokemonCard(
 }
 
 let listWounded: Pokemon[] = [];
-
 function listWoundedPokemon() {
-        for (let i = 0; i < woundedPokemon.length; i++) {
-            if (!listWounded.includes(pokedex[woundedPokemon[i]])) {
-                createPokemonCard(pokedex[woundedPokemon[i]]);
-                listWounded.push(pokedex[woundedPokemon[i]]);
-                if (listWounded.length === machine.storage) {
-                    return;
-                }
+    for (let i = 0; i < woundedPokemon.length; i++) {
+        if (!listWounded.includes(pokedex[woundedPokemon[i]])) {
+            createPokemonCard(pokedex[woundedPokemon[i]]);
+            listWounded.push(pokedex[woundedPokemon[i]]);
+            if (listWounded.length === machine.storage) {
+                return;
             }
         }
     }
+}
+
+const backgroundPatientsElt = document.querySelector(".backgroundPatients")! as HTMLElement;
+const cardPatients = document.querySelector(".cardPatients")!;
+backgroundPatientsElt.style.height = "600px";
+
+function createWaitingListCard(
+    pokemon: Pokemon
+) {
+    const card = document.createElement("div");
+    card.classList.add("card", "m-1");
+    cardPatients?.appendChild(card);
+
+    const cardHeader = document.createElement("div");
+    cardHeader.classList.add("card-header");
+    card.appendChild(cardHeader);
+
+    const cardImg = document.createElement("div");
+    cardImg.style.backgroundImage = `url(${pokemon.image})`;
+    cardImg.classList.add("card-img");
+    card.appendChild(cardImg);
+
+    const cardBody = document.createElement("div");
+    cardBody.classList.add("card-body", "m-0", "p-0");
+    card.appendChild(cardBody);
+
+    const cardTitle = document.createElement("p");
+    cardTitle.innerHTML = `${pokemon.name}`;
+    cardTitle.classList.add("card-title");
+    cardBody.appendChild(cardTitle);
+
+    cardImg.style.width = "50px";
+    cardImg.style.height = "50px";
+}
 
 // les fonctions des boutons //
 
 const btnMachineElmt = document.querySelector(".button-machine") as HTMLElement;
-
-
-let button: boolean;
-
 const music = new Audio('./assets/PokeCenter2.mp3');
+let button: boolean;
 
 btnMachineElmt.addEventListener("click", () => {
     
     if (button) {
         heal(listWounded);
         woundedPokemon = [];
+        listWounded = [];
         for (let i = 0; i < listWounded.length; i++) {
             setTimeout(() => {
                 const pokemon = listWounded[i];
@@ -277,11 +255,15 @@ btnMachineElmt.addEventListener("click", () => {
         setTimeout(() => {btnMachineElmt.removeAttribute('disabled')}, 3000);
         music.play();
         button = false;
+        console.log("isWounded() = ");console.log(woundedPokemon);
+        console.log("listWoundedPokemon = ");console.log(listWounded);
     } else {
         btnMachineElmt.textContent = "Heal them all !";
         cards.innerHTML = "";
         isWounded();
         listWoundedPokemon();
+        console.log("isWounded() = ");console.log(woundedPokemon);
+        console.log("listWoundedPokemon = ");console.log(listWounded);
         if (woundedPokemon.length === 0) {
             const win = document.createElement("div");
             win.classList.add("win");
