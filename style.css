@@ -78,14 +78,13 @@ body {
     border-radius: 3px;
 }
 
-
 .health {
     background-color: #00c517;
-    width: 100px;
     height: 6px;
     border-radius: 2px;
     transition-duration: 2s;
 }
+
 
 .win {
     display: flex;
