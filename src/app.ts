@@ -71,36 +71,21 @@ pokedex.lipoutou.wound(355);
 
 // Variable qui accumule les Pokeymaunes bléssés ou hors jeux //
 let woundedPokemon: string[] = [];
-//let emergencyList: string[] = [];
+let emergencyList: string[] = [];
+let isWaiting: Pokemon[] = [];
 
-// Fonction de remplissage de la liste de Pokeymaunes bléssés ou hors jeux //
+// Fonction de remplissage des listes de Pokeymaunes bléssés ou hors jeux //
 function isWounded() {
     Object.keys(pokedex).forEach(function (pokemon) {
         if (pokedex[pokemon].pv < pokedex[pokemon].maxPv) {
             if (!woundedPokemon.includes(pokemon)) {
                 woundedPokemon.push(pokemon);
-                //emergencyList.push(pokemon);
+                emergencyList.push(pokemon);
             }
         }
     });
 }
 isWounded();
-//waitingList();
-//console.log (emergencyList);
-//console.log (woundedPokemon);
-
-//let isWaiting: Pokemon[] = [];
-//console.log(isWaiting);
-/*
-function waitingList(){
-    for (let i = 0; i < emergencyList.length; i++) {
-        if (!isWaiting.includes(pokedex[emergencyList[i]])) {
-            createWaitingListCard(pokedex[emergencyList[i]]);
-            isWaiting.push(pokedex[emergencyList[i]]);
-        }
-    }
-}
-*/
 
 function heal(list: Pokemon[]) {
     for (let i = 0; i < list.length; i++) {
@@ -186,12 +171,10 @@ function listWoundedPokemon() {
     }
 }
 
-/*
 const backgroundPatientsElt = document.querySelector(".backgroundPatients")! as HTMLElement;
 const cardPatients = document.querySelector(".cardPatients")!;
 backgroundPatientsElt.style.height = "600px";
-*/
-/*
+
 function createWaitingListCard(
     pokemon: Pokemon
 ) {
@@ -220,20 +203,30 @@ function createWaitingListCard(
     cardImg.style.width = "50px";
     cardImg.style.height = "50px";
 }
-*/
+
+function waitingList(){
+    for (let i = 0; i < emergencyList.length; i++) {
+        if (!isWaiting.includes(pokedex[emergencyList[i]])) {
+            createWaitingListCard(pokedex[emergencyList[i]]);
+            isWaiting.push(pokedex[emergencyList[i]]);
+        }
+        if (isWaiting.length === 15) {
+            return;
+        }
+    }
+}
+waitingList();
+
+
 
 // les fonctions des boutons //
-
 const btnMachineElmt = document.querySelector(".button-machine") as HTMLElement;
 const music = new Audio('./assets/PokeCenter2.mp3');
 let button: boolean;
 
 btnMachineElmt.addEventListener("click", () => {
-    
     if (button) {
         heal(listWounded);
-        woundedPokemon = [];
-        listWounded = [];
         for (let i = 0; i < listWounded.length; i++) {
             setTimeout(() => {
                 const pokemon = listWounded[i];
@@ -244,10 +237,7 @@ btnMachineElmt.addEventListener("click", () => {
         };
         btnMachineElmt.setAttribute('disabled', '');
         setTimeout(() => {btnMachineElmt.textContent = "Who is wounded ?"}, 3000);
-        
         setTimeout(() => {cards.innerHTML = ""}, 3000);
-        
-
         for (let i = 0; i < listWounded.length; i++) {
             const pokeScream = listWounded[i];
             setTimeout(() => {
@@ -256,19 +246,21 @@ btnMachineElmt.addEventListener("click", () => {
                 }
             }, 2000);
         }
-
         setTimeout(() => {btnMachineElmt.removeAttribute('disabled')}, 3000);
         music.play();
         button = false;
-        console.log("isWounded() = ");console.log(woundedPokemon);
-        console.log("listWoundedPokemon = ");console.log(listWounded);
     } else {
+        woundedPokemon = [];
+        listWounded = [];
+        emergencyList = [];
+        isWaiting = [];
         btnMachineElmt.textContent = "Heal them all !";
         cards.innerHTML = "";
+        cardPatients.innerHTML = "";
         isWounded();
+        emergencyList = emergencyList.slice(machine.storage);
+        waitingList();
         listWoundedPokemon();
-        console.log("isWounded() = ");console.log(woundedPokemon);
-        console.log("listWoundedPokemon = ");console.log(listWounded);
         if (woundedPokemon.length === 0) {
             const win = document.createElement("div");
             win.classList.add("win");
