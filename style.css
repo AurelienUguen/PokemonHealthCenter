@@ -98,3 +98,11 @@ body {
     height: 300px;
     width: 100%;
 }
+
+.screamContainer{
+    background-color: red;
+}
+
+.scream{
+    border-style: dotted;
+}

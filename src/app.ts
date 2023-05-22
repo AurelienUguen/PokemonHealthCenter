@@ -47,7 +47,7 @@ let pokedex: { [key: string]: Pokemon } = {
         "Ptitaaaard",
         "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
         100
-    ),
+    )
 }
 
 pokedex.pikachu.wound(200);
@@ -59,7 +59,6 @@ pokedex.evoli.wound(17);
 pokedex.salameche.wound(133);
 
 
- 
 // Variable qui accumule les Pokeymaunes bléssés ou hors jeux //
 let woundedPokemon: string[] = [];
 
@@ -128,9 +127,18 @@ function createPokemonCard(
     const cardHealthContainer = document.createElement("div");
     cardHealthContainer.classList.add("bar");
     cardBody.appendChild(cardHealthContainer);
-  
+    
+    const cardScreamContainer = document.createElement("div");
+    cardScreamContainer.classList.add("screamContainer");
+    cardBody.appendChild(cardScreamContainer);
+
     pokemon._healthContainer = document.createElement("div");
     pokemon._healthContainer.classList.add("health");
+    cardHealthContainer.appendChild(pokemon._healthContainer);
+    pokemon._healthContainer.style.width = calcHealthPerc(pokemon.pv, pokemon.maxPv);
+    
+    pokemon._screamContainer = document.createElement("div");
+    pokemon._screamContainer.classList.add("scream");
     cardHealthContainer.appendChild(pokemon._healthContainer);
     pokemon._healthContainer.style.width = calcHealthPerc(pokemon.pv, pokemon.maxPv);
 
@@ -177,7 +185,14 @@ btnMachineElmt.addEventListener("click", () => {
                 pokemon._healthContainer.style.width = '100%';
             });
         };
+
         setTimeout(() => {cards.innerHTML = ""}, 3000);
+        // for (let i = 0; i < listWounded.length; i++) {
+        //     const pokescream = listWounded[i];
+
+        //     // cards.innerHTML = `${pokescream.scream}`;
+        // }
+
         music.play();
         button = false;
     } else {
