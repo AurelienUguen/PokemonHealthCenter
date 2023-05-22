@@ -1,0 +1,100 @@
+
+.main-title {
+    font-family: cursive;
+    margin-top: 30px;
+    color: #D9453D;
+}
+
+body {
+    background-image: url(ressources/pokecenter.jpeg);
+    background-repeat: no-repeat;
+}
+
+.background {
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.415);
+    border-radius: 5px;
+}
+
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+    background-color: #D9453D !important;
+    padding: 15px 120px 15px 120px !important;
+    border: 0px !important;
+}
+
+.btn-primary:hover {
+    background-color: #f8574e !important;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    color: rgb(255, 255, 255);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: lighter;
+}
+
+.card {
+    text-align: center;
+    border-radius: 10px;
+    width: 200px;
+    margin: 20px 50px 20px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255) !important;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: lighter;
+    background-color: rgba(255, 255, 255, 0.114) !important;
+}
+
+.card-header {
+    visibility: hidden;
+}
+
+.card-img {
+    border-radius: 10px 10px 0 0;
+    background-size: cover;
+    background-position: center;
+    background-image: url("http://placekitten.com/200/300");
+
+}
+
+.card-body {
+    padding: 10px 20px;
+}
+
+.card-body h2 {
+    margin: 10px 0px;
+}
+
+.bar {
+    width: 125px;
+    height : 8px;
+    border: 1px solid rgb(208, 208, 208);
+    border-radius: 3px;
+}
+
+
+.health {
+    background-color: #00c517;
+    width: 100px;
+    height: 6px;
+    border-radius: 2px;
+    transition-duration: 2s;
+}
+
+.win {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-repeat: no-repeat;
+    font-style: italic;
+    font-size: 100px;
+    height: 300px;
+    width: 100%;
+}

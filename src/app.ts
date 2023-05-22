@@ -48,64 +48,64 @@ let pokedex: { [key: string]: Pokemon } = {
         "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
         100
     ),
-    ptitard1: new Pokemon(
-        "Ptitard",
-        "Ptitaaaard",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
+    bulbizarre: new Pokemon(
+        "Bulbizarre",
+        "Bulbiiii",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
+        105
+    ),
+    melofee: new Pokemon(
+        "Mélofée",
+        "Mélooooofée",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/035.png",
+        150
+    ),
+    goupix: new Pokemon(
+        "Goupix",
+        "Goupiiiix",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/037.png",
+        200
+    ),
+    caninos: new Pokemon(
+        "Caninos",
+        "Caniiiinos",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/058.png",
         100
     ),
-    ptitard2: new Pokemon(
-        "Ptitard",
-        "Ptitaaaard",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
+    racaillou: new Pokemon(
+        "Racaillou",
+        "Racaillouuuu",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/074.png",
         100
     ),
-    ptitard3: new Pokemon(
-        "Ptitard",
-        "Ptitaaaard",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
+    ponyta: new Pokemon(
+        "Ponyta",
+        "Popoponyta",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/077.png",
+        190
+    ),
+    otaria: new Pokemon(
+        "Otaria",
+        "Otariiia",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/086.png",
+        140
+    ),
+    tadmorv: new Pokemon(
+        "Tadmorv",
+        "Tadmoooooorv",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/088.png",
+        260
+    ),
+    onix: new Pokemon(
+        "Onix",
+        "Oniiiiix",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/095.png",
         100
     ),
-    ptitard4: new Pokemon(
-        "Ptitard",
-        "Ptitaaaard",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
-        100
-    ),
-    ptitard5: new Pokemon(
-        "Ptitard",
-        "Ptitaaaard",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
-        100
-    ),
-    ptitard6: new Pokemon(
-        "Ptitard",
-        "Ptitaaaard",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
-        100
-    ),
-    ptitard7: new Pokemon(
-        "Ptitard",
-        "Ptitaaaard",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
-        100
-    ),
-    ptitard8: new Pokemon(
-        "Ptitard",
-        "Ptitaaaard",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
-        100
-    ),
-    ptitard9: new Pokemon(
-        "Ptitard",
-        "Ptitaaaard",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
-        100
-    ),
-    ptitard0: new Pokemon(
-        "Ptitard",
-        "Ptitaaaard",
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png",
+    lipoutou: new Pokemon(
+        "Lipoutou",
+        "Lipoutoupoutou",
+        "https://assets.pokemon.com/assets/cms2/img/pokedex/full/124.png",
         100
     ),
 }
@@ -113,22 +113,22 @@ let pokedex: { [key: string]: Pokemon } = {
 pokedex.pikachu.wound(200);
 pokedex.canartichau.wound(10);
 pokedex.psykokwak.wound(23);
-pokedex.carapuce.wound(74);
-pokedex.ptitard.wound(34);
-pokedex.evoli.wound(17);
 pokedex.salameche.wound(133);
+pokedex.carapuce.wound(74);
+pokedex.evoli.wound(17);
+pokedex.ptitard.wound(34);
 
 
-pokedex.ptitard0.wound(34);
-pokedex.ptitard1.wound(34);
-pokedex.ptitard2.wound(34);
-pokedex.ptitard3.wound(34);
-pokedex.ptitard4.wound(34);
-pokedex.ptitard5.wound(34);
-pokedex.ptitard6.wound(34);
-pokedex.ptitard7.wound(34);
-pokedex.ptitard8.wound(34);
-pokedex.ptitard9.wound(34);
+pokedex.bulbizarre.wound(34);
+pokedex.melofee.wound(37);
+pokedex.goupix.wound(74);
+pokedex.caninos.wound(64);
+pokedex.racaillou.wound(34);
+pokedex.ponyta.wound(60);
+pokedex.otaria.wound(14);
+pokedex.tadmorv.wound(3);
+pokedex.onix.wound(100);
+pokedex.lipoutou.wound(355);
 
 
  
@@ -161,7 +161,7 @@ const cardPatients = document.querySelector(".cardPatients")!;
 
 backgroundElt.style.width = "1000px";
 backgroundElt.style.height = "600px";
-backgroundPatientsElt.style.height = "600px";
+// backgroundPatientsElt.style.height = "600px";
 
 
 function calcHealthPerc(pv: number, maxPv: number) {
@@ -264,7 +264,6 @@ function listWoundedPokemon() {
     }
 
 // les fonctions des boutons //
-
 const btnMachineElmt = document.querySelector(".button-machine") as HTMLElement;
 
 let button: boolean;
