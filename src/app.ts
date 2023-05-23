@@ -174,6 +174,7 @@ function listWoundedPokemon() {
 const backgroundPatientsElt = document.querySelector(".backgroundPatients")! as HTMLElement;
 const cardPatients = document.querySelector(".cardPatients")!;
 backgroundPatientsElt.style.height = "600px";
+backgroundPatientsElt.style.width = "650px";
 
 function createWaitingListCard(
     pokemon: Pokemon
